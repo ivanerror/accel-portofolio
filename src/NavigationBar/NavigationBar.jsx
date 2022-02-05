@@ -2,7 +2,7 @@ import React from "react";
 
 const NavigationBar = () => {
   return (
-    <nav className="bg-transparent fixed left-0 right-0 top-0">
+    <nav className="bg-gradient-to-b from-white/70 to-transparent fixed left-0 right-0 top-0 z-10">
       <div className="flex flex-wrap justify-between items-center mx-auto py-4 px-4">
         <a href="" className="flex">
           <img className="h-10" src={"/assets/logo/accel-black.png"} alt="" />

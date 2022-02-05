@@ -1,11 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Lustria&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .h-polaroid {
+    height: 500px;
+  }
+}
+
 .nav-link {
-  @apply block py-2 px-4 text-sm text-black font-bold tracking-widest;
+  @apply block py-2 px-4 text-sm text-black font-bold tracking-widest transition-colors duration-300;
 }
 
 .nav-link:hover {
-  @apply text-gray-500 transition-colors duration-200;
+  @apply text-[#927043] transition-colors duration-300 ease-in;
 }
