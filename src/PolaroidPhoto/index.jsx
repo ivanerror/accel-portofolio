@@ -1,9 +1,9 @@
-import React, { useDebugValue } from "react";
+import React from "react";
 
 const PolaroidPhoto = () => {
   return (
     <div className="container md:mt-10 lg:w-2/3 mx-auto relative">
-      <div className="md:rounded-2xl md:px-10 md:py-16 md:hover:shadow-xl  transition-shadow duration-500 ease-in">
+      <div className="cursor-pointer md:rounded-2xl md:px-10 md:py-16 md:hover:shadow-xl  transition-shadow duration-500 ease-in">
         <img
           src="/assets/img/ice.jpg"
           alt=""
@@ -30,8 +30,8 @@ const PolaroidPhoto = () => {
             quasi odio, non assumenda vero necessitatibus blanditiis asperiores
             eius, quisquam pariatur!
           </p>
-          <div className="hidden md:block relative w-100 whitespace-nowrap group mt-4">
-            <div className="w-10 h-1 mt-3 absolute left-0 -translate-x-1/2 -translate-y-1/2 bg-clip-padding cursor-pointer box-content border-y-8 border-transparent rounded-lg bg-slate-300 transition transform group-hover:rotate-180 group-hover:opacity-0 group-hover:-translate-x-32 motion-reduce:transition-none motion-reduce:transform-none duration-1000 ease-out"></div>
+          <div className="hidden md:block relative w-100 whitespace-nowrap group mt-4 motion-reduce:transition-none motion-reduce:transform-none">
+            <div className="w-20 h-1 mt-3 absolute left-0 -translate-x-1/2 -translate-y-1/2 bg-clip-padding cursor-pointer box-content border-y-8 border-transparent rounded-lg bg-slate-300 transition transform group-hover:rotate-180 group-hover:opacity-0 group-hover:-translate-x-40  duration-1000 ease-out"></div>
             <h4 className="cursor-pointer opacity-0 group-hover:opacity-100 font-Lustria absolute left-20 group-hover:left-0 -translate-x-1/2  text-gray-600 text-xl leading-none font-bold uppercase transition-all duration-500 ease-out">
               Read Story
             </h4>

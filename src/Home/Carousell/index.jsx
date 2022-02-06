@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
+import { useSwipeable } from "react-swipeable";
+import useInterval from "use-interval";
 
 const HomeCarousell = ({ data }) => {
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const swipeable = useSwipeable({
+    trackMouse: true,
+    onSwipedRight: () => handlePrevButton(),
+    onSwipedLeft: () => handleNextButton(),
+  });
 
+  useInterval(() => handleNextButton(), 5000);
   //   if carouselIndex is in last index, set it to 0
   const handleNextButton = () => {
     if (carouselIndex === data.length - 1) {
@@ -22,9 +30,11 @@ const HomeCarousell = ({ data }) => {
     }
   };
 
+  // setInterval(handleNextButton, 5000);
+
   return (
-    <div>
-      <div className="w-full h-screen">
+    <div {...swipeable}>
+      <div className="w-full h-screen relative">
         {data.map((item, index) => (
           <div
             key={index}
@@ -57,7 +67,9 @@ const HomeCarousell = ({ data }) => {
           <FiChevronRight />
         </button>
         <div className="bg-gradient-to-t from-black/80 to-black/0  absolute bottom-0 text-white w-full flex flex-col items-center pb-10 pt-20 px-4 mx-auto">
-          <h4 className="text-xl font-bold text-center font-Lustria">This is Title</h4>
+          <h4 className="text-xl font-bold text-center font-Lustria">
+            This is Title
+          </h4>
           <p className="text-center font-Raleway">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique,
             iste!
@@ -67,7 +79,7 @@ const HomeCarousell = ({ data }) => {
           {data.map((item, index) => (
             <li
               key={index}
-              className={`w-8 h-1 bg-clip-padding cursor-pointer box-content border-8 border-transparent rounded-lg transition-colors duration-300  ${
+              className={`md:w-8 w-3 h-1 bg-clip-padding cursor-pointer box-content border-8 border-transparent rounded-lg transition-colors duration-300  ${
                 carouselIndex === index
                   ? `bg-white/100`
                   : `hover:bg-white/75 bg-white/50`
@@ -81,6 +93,8 @@ const HomeCarousell = ({ data }) => {
   );
 };
 // defaultProps Home Carousel
-HomeCarousell.defaultProps = { data: ["apple.jpg", "sunset.jpg", "mount.jpg", "mount2.jpg"] };
+HomeCarousell.defaultProps = {
+  data: ["apple.jpg", "sunset.jpg", "mount.jpg", "mount2.jpg"],
+};
 
 export default HomeCarousell;
